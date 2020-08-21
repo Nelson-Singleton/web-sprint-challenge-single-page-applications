@@ -19,6 +19,9 @@ const initialFormValues = {
 
 const initialFormError = {
   name: "",
+  size: "",
+  toppings: "",
+  special: "",
 }
 
 const initialOrders = []
@@ -72,6 +75,7 @@ const submit = () => {
     toppings: Object.keys(formValues.toppings).filter(topping => formValues.toppings[topping]),
     special: formValues.special,
   }
+  console.log (newOrder)
     
     postNewOrder(newOrder)
 }
@@ -81,7 +85,20 @@ const formSchema = yup.object().shape({
   
   name: yup
   .string()
-  .min(2, 'Password must be at least 2 characters long')  
+  .min(2, 'Name must be at least 2 characters long')  
+  .required('Name is Required'),
+
+  size: yup
+  .string()
+  .oneOf(['small', 'medium', 'large'], 'Select a pizza size')
+  .required('You must select a pizza size'),
+
+  special: yup
+  .string(),  
+  
+
+  name: yup
+  .string()  
   .required('Username is Required'),
 
 })

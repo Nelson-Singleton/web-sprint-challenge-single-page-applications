@@ -19,11 +19,16 @@ const onCheckboxChange = evt => {
     checkboxChange(name, checked)
 }
 
-//update state when entering data into form************************************************************
+//update state when entering data into form and trigger validation************************************************************
 const onInputChange = evt => {
     const { name, value } = evt.target
     inputChange(name, value)
 }
+
+
+
+
+
 
 return(
 <div>
@@ -31,6 +36,9 @@ return(
         
         <div>
             <div>{formErrors.name}</div>
+            {/* <div>{formErrors.size}</div> */}
+            <div>{formErrors.toppings}</div>
+            <div>{formErrors.special}</div>
         </div>
 
         <label>
@@ -41,8 +49,8 @@ return(
 
         <label>
             Pizza Size
-            <select id="dropdown" name="size" values = {formValues.size} onChange  > 
-                <option value = "Select a size"> </option>    
+            <select id="dropdown" name="size" value = {formValues.size} onChange = {onInputChange}  > 
+                <option> Select a size </option>    
                 <option value= "Small">Small</option> 
                 <option value= "Medium">Medium</option> 
                 <option value= "Large">Large</option>  
@@ -74,7 +82,7 @@ return(
         </label>
         <br></br>
 
-        <button disabled={disabled}>submit</button>
+        <button>submit</button>
 
     </form>
 </div>
