@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios'
 import * as yup from 'yup'
 import Form from './Form'
+import Home from './Home'
 import { Route, Switch, Link } from 'react-router-dom'
 
 //initial variables *******************************************************
@@ -89,17 +90,11 @@ const formSchema = yup.object().shape({
   .required('Name is Required'),
 
   size: yup
-  .string()
-  .oneOf(['small', 'medium', 'large'], 'Select a pizza size')
+  .string()  
   .required('You must select a pizza size'),
 
   special: yup
   .string(),  
-  
-
-  name: yup
-  .string()  
-  .required('Username is Required'),
 
 })
 
@@ -144,23 +139,17 @@ useEffect(() => {
   return (
     <div>
       <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
+      
+      <nav>
+      <p><Link to="/">Home</Link></p>
+      <Link to="/pizza">Click here to order</Link>
+      </nav>
+      <br></br>
     
-    {/* <Link to = "/form" component = { Form } >
-      <div>Click here for pizza</div>
-    </Link>
 
-    <Route exact path="/" component={App}/>
-    <Route path="/form" component={Form}/> */}
-    
-       
-        {/* <Route path='/form' component = {Form}>     
-          <Form />  
-        </Route>
-        <Route path = '/' component = {App}>
-          <App />  
-        </Route>       */}
+<Switch>
 
+<Route path='/pizza'>
 <Form 
 formValues= {formValues}  
 disabled= {disabled}
@@ -171,7 +160,14 @@ inputChange= {inputChange}
 checkboxChange= {checkboxChange}
 submit= {submit}
 />
-          
+</Route>
+
+<Route exact path = '/'>
+  <Home />  
+</Route>
+
+
+</Switch>          
     </div>
 
 
