@@ -129,9 +129,13 @@ useEffect(() => {
       <h1>Lambda Eats</h1>
       <p>You can remove this code and create your own header</p>
     
-    <Link to = "/form" component = { Form } >
-    <div className ="home-button">Click here for pizza</div>
+    {/* <Link to = "/form" component = { Form } >
+      <div>Click here for pizza</div>
     </Link>
+
+    <Route exact path="/" component={App}/>
+    <Route path="/form" component={Form}/> */}
+    
        
         {/* <Route path='/form' component = {Form}>     
           <Form />  
@@ -139,8 +143,23 @@ useEffect(() => {
         <Route path = '/' component = {App}>
           <App />  
         </Route>       */}
+
+<Form 
+formValues= {formValues}  
+disabled= {disabled}
+formErrors = {formErrors}
+orders = {orders}
+
+inputChange= {inputChange}
+checkboxChange= {checkboxChange}
+submit= {submit}
+/>
           
     </div>
-  );
-};
+
+
+  
+)
+
+}
 export default App;
