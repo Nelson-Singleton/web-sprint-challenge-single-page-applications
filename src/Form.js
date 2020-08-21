@@ -43,7 +43,7 @@ return(
 
         <label>
             Name
-            <input type = "text" name = "name" onChange = {onInputChange} value = {formValues.name}/>
+            <input className = 'nametab' type = "text" name = "name" onChange = {onInputChange} value = {formValues.name}/>
         </label>
         <br></br>
 
@@ -63,26 +63,26 @@ return(
             Select your toppings
             <br></br>
             sausage
-            <input type = "checkbox" name = "sausage" checked = {formValues.toppings.sausage} onChange = {onCheckboxChange}/>
+            <input className = "sausagebox" type = "checkbox" name = "sausage" checked = {formValues.toppings.sausage} onChange = {onCheckboxChange}/>
             <br></br>
             bacon
-            <input type = "checkbox" name = "bacon" checked = {formValues.toppings.bacon} onChange = {onCheckboxChange}/>
+            <input className = "baconbox" type = "checkbox" name = "bacon" checked = {formValues.toppings.bacon} onChange = {onCheckboxChange}/>
             <br></br>
             peppers
-            <input type = "checkbox" name = "peppers" checked = {formValues.toppings.peppers} onChange = {onCheckboxChange}/>
+            <input className = "peppersbox" type = "checkbox" name = "peppers" checked = {formValues.toppings.peppers} onChange = {onCheckboxChange}/>
             <br></br>
             onions
-            <input type = "checkbox" name = "onions" checked = {formValues.toppings.onions} onChange = {onCheckboxChange}/>
+            <input className = "onionsbox" type = "checkbox" name = "onions" checked = {formValues.toppings.onions} onChange = {onCheckboxChange}/>
             <br></br>
         </label>
 
         <label>
             Are there any special instructions?
-            <input type = "text" name = "special" onChange = {onInputChange} value = {formValues.special}/>
+            <input className = "specialtab" type = "text" name = "special" onChange = {onInputChange} value = {formValues.special}/>
         </label>
         <br></br>
 
-        <button>submit</button>
+        <button className = "submitbutton">submit</button>
 
     </form>
 </div>

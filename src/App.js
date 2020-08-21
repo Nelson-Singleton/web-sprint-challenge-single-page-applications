@@ -103,17 +103,16 @@ const inputChange = (name, value) => {
  
   yup
     .reach(formSchema, name)
-    //we can then run validate using the value
+    
     .validate(value)
-    // if the validation is successful, we can clear the error message
+    
     .then(valid => {
       setFormErrors({
         ...formErrors,
         [name]: "",
       })
     })
-    /* if the validation is unsuccessful, we can set the error message to the message 
-      returned from yup (that we created in our schema) */
+    
     .catch(err => {
       setFormErrors({
         ...formErrors,
@@ -123,7 +122,7 @@ const inputChange = (name, value) => {
 
   setFormValues({
     ...formValues,
-    [name]: value // NOT AN ARRAY
+    [name]: value 
     
   })
 }
@@ -167,7 +166,18 @@ submit= {submit}
 </Route>
 
 
-</Switch>          
+</Switch> 
+<h2>Open orders</h2>
+  {orders.map(order =>{
+    return(
+      <pre key = {order.id}>
+        <h3>{JSON.stringify(order)}</h3>
+        
+     </pre>
+    )
+  })
+  
+  }         
     </div>
 
 
